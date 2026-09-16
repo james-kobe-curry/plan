@@ -1,0 +1,10 @@
+<resources>
+    <style name="Theme.Tongpin.Base" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#F6F7F5</item>
+        <item name="android:navigationBarColor">#253632</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+    <style name="Theme.Tongpin" parent="Theme.Tongpin.Base" />
+</resources>

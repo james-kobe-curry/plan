@@ -1,0 +1,31 @@
+# Gradle 与构建产物
+.gradle/
+.gradle-user/
+**/build/
+.dependency-cache/
+.kotlin/
+captures/
+
+# 本机配置与签名（严禁提交）
+local.properties
+.signing/
+*.jks
+*.keystore
+
+# 日志与临时探测文件
+*.log
+emulator-probe*.txt
+
+# 历史安装包与源码包通过 GitHub Releases 分发，不进入 Git 历史
+deliverables/*.apk
+deliverables/*.zip
+
+# deliverables 下与 docs/ 内容重复的副本，以 docs/ 为准
+deliverables/使用指南.md
+deliverables/验证记录.md
+
+# 系统与编辑器文件
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
