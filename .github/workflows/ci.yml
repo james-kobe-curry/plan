@@ -29,7 +29,8 @@ jobs:
         run: |
           set -e
           SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          yes | "$SDKMANAGER" --licenses >/dev/null
+          # sdkmanager 接收完许可应答后会提前关闭 stdin，使 yes 收到 SIGPIPE，属正常现象
+          yes | "$SDKMANAGER" --licenses >/dev/null 2>&1 || true
           "$SDKMANAGER" "platforms;android-36" "build-tools;36.0.0"
 
       - name: 配置 Gradle
