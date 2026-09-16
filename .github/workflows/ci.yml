@@ -24,11 +24,13 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: 安装 Android SDK 命令行工具
-        uses: android-actions/setup-android@v3
-
-      - name: 安装 Android 36 平台与构建工具
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+      - name: 接受 SDK 许可并安装 Android 36
+        shell: bash
+        run: |
+          set -e
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKMANAGER" --licenses >/dev/null
+          "$SDKMANAGER" "platforms;android-36" "build-tools;36.0.0"
 
       - name: 配置 Gradle
         uses: gradle/actions/setup-gradle@v4
